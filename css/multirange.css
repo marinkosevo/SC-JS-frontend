@@ -1,0 +1,160 @@
+.multiRange {
+	min-width: 200px;
+}
+
+.multiRange.type1 .multiRange__range {
+	color: #eee;
+}
+
+.multiRange.type1 .multiRange__range:nth-child(2) {
+	color: #ec5564;
+}
+
+.multiRange.type1 .multiRange__range__handle {
+	box-shadow: none;
+	background: #ec5564;
+}
+
+.multiRange.type1 .multiRange__range__value {
+	background: #ec5564;
+	color: white;
+}
+
+.multiRange.type1 .multiRange__range__value::after {
+	border-color: #ec5564 transparent transparent;
+}
+
+body.multiRange-grabbing {
+	cursor: grabbing;
+}
+
+.multiRange {
+	user-select: none;
+	width: 92%;
+}
+
+.multiRange__rangeWrap {
+	height: 12px;
+	background: #e8e8e8;
+	border-radius: 3px;
+	position: relative;
+	z-index: 5;
+}
+
+.multiRange__range {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	background: currentColor;
+}
+
+.multiRange__range:nth-child(1) {
+	color: rgb(220, 53, 69);
+}
+
+.multiRange__range:nth-child(2) {
+	color: #fe8f1d;
+}
+
+.multiRange__range:nth-child(3) {
+	color: rgb(40, 167, 69);
+}
+
+.multiRange__range:nth-child(4) {
+	color: #fe8f1d;
+}
+
+.multiRange__range:nth-child(5) {
+	color: rgb(220, 53, 69);
+}
+
+.multiRange__range:first-child>.multiRange__range__handle,
+.multiRange__range:first-child>.multiRange__range__value {
+	display: none;
+}
+
+.multiRange__range.grabbed>.handle {
+	background: black;
+}
+
+.multiRange__range.hideValue .multiRange__range__value {}
+
+.multiRange__range__handle {
+	width: 5px;
+	position: absolute;
+	top: -3px;
+	bottom: -3px;
+	left: -1px;
+	cursor: grab;
+	background: currentColor;
+	box-shadow: 1px 0 white, -1px 0 white;
+	transition: 0.2s;
+}
+
+.multiRange__range__handle:active {
+	cursor: inherit;
+}
+
+.multiRange__range__value,
+.multiRange__range__groupedValue {
+	position: absolute;
+	transform: translate(-50%, -10px);
+	min-width: 10px;
+	background: #31383f;
+	color: white;
+	padding: 2px 6px;
+	bottom: 12px;
+	left: -1px;
+	white-space: nowrap;
+	font-size: 11px;
+	text-align: center;
+	border-radius: 4px;
+	cursor: default;
+}
+
+.multiRange__range__value::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 1px;
+	border-color: #31383f transparent transparent;
+	border-style: solid;
+	border-width: 5px 5px;
+	transform: translate(-50%, 100%);
+	color: #31383f;
+	font-size: 15px;
+	z-index: -1;
+	pointer-events: none;
+}
+
+.multiRange__ticks {
+	display: flex;
+	justify-content: space-between;
+	height: 6px;
+	margin: 2px 0 0 0;
+	font: 10px Arial;
+	cursor: default;
+}
+
+.multiRange__ticks>div {
+	height: 100%;
+	width: 1px;
+	background: #ddd;
+	color: #888;
+}
+
+.multiRange__ticks>div::before {
+	display: none;
+	content: attr(data-value);
+	transform: translate(-50%, 100%);
+	text-align: center;
+	width: 40px;
+}
+
+.multiRange__ticks>div:nth-child(5n - 4) {
+	height: 200%;
+}
+
+.multiRange__ticks>div:nth-child(5n - 4)::before {
+	display: block;
+}
